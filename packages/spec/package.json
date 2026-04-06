@@ -1,0 +1,10 @@
+{
+  "name": "@ghostshift/spec",
+  "version": "1.0.0",
+  "description": "Open data model for Ghostshift traces",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "license": "Apache-2.0"
+}

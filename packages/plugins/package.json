@@ -1,0 +1,10 @@
+{
+  "name": "@ghostshift/plugins",
+  "version": "1.0.0",
+  "description": "Stable plugin runtime and built-in adapters for Ghostshift",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "license": "AGPL-3.0-only"
+}

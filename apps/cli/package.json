@@ -1,0 +1,13 @@
+{
+  "name": "@ghostshift/cli",
+  "version": "1.0.0",
+  "description": "Ghostshift command-line interface",
+  "type": "module",
+  "bin": {
+    "ghostshift": "src/index.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "AGPL-3.0-only"
+}

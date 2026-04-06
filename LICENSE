@@ -1,0 +1,18 @@
+Ghostshift uses a split-license model.
+
+Code licensed under AGPL-3.0-only:
+- `apps/cli`
+- `packages/core`
+- `packages/storage`
+- future product runtime and hosted-service code unless noted otherwise
+
+Code licensed under Apache-2.0:
+- `packages/spec`
+- future SDK packages unless noted otherwise
+- repository documentation and examples unless a file says otherwise
+
+License texts:
+- AGPL-3.0-only: `LICENSES/AGPL-3.0-only.txt`
+- Apache-2.0: `LICENSES/Apache-2.0.txt`
+
+See `docs/rfcs/0001-monorepo-and-oss.md` for the rationale behind this split.

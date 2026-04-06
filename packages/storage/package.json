@@ -1,0 +1,10 @@
+{
+  "name": "@ghostshift/storage",
+  "version": "1.0.0",
+  "description": "Storage adapters for Ghostshift",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "license": "AGPL-3.0-only"
+}

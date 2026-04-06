@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ghostshift Preview</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <p class="eyebrow">Ghostshift</p>
+          <h1>Preview</h1>
+          <p class="subtitle">Self-hostable workspace explorer for AI-made work.</p>
+        </div>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Sessions</h2>
+            <button id="refreshSessions" type="button">Refresh</button>
+          </div>
+          <div id="sessionList" class="session-list"></div>
+        </section>
+      </aside>
+
+      <main class="content">
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Workspace</p>
+            <h2 id="workspaceTitle">Loading...</h2>
+          </div>
+          <div id="healthSummary" class="chip-row"></div>
+        </section>
+
+        <section class="grid">
+          <article class="panel">
+            <div class="panel-header">
+              <h2>Session Detail</h2>
+              <span id="selectedSessionLabel" class="muted">Choose a session</span>
+            </div>
+            <pre id="sessionDetail" class="detail-block">Select a session from the left.</pre>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <h2>Explain</h2>
+              <span class="muted">Derived session report</span>
+            </div>
+            <pre id="explainDetail" class="detail-block">Explain output will appear here.</pre>
+          </article>
+        </section>
+
+        <section class="grid">
+          <article class="panel">
+            <div class="panel-header">
+              <h2>Compare</h2>
+            </div>
+            <form id="compareForm" class="form-stack">
+              <label>
+                <span>Left session</span>
+                <select id="compareLeft"></select>
+              </label>
+              <label>
+                <span>Right session</span>
+                <select id="compareRight"></select>
+              </label>
+              <button type="submit">Run compare</button>
+            </form>
+            <pre id="compareResult" class="detail-block">Compare output will appear here.</pre>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <h2>Blame Lookup</h2>
+            </div>
+            <form id="blameForm" class="form-stack">
+              <label>
+                <span>File path</span>
+                <input id="blameFile" type="text" placeholder="src/auth.ts" />
+              </label>
+              <label>
+                <span>Line</span>
+                <input id="blameLine" type="number" min="1" value="1" />
+              </label>
+              <button type="submit">Resolve blame</button>
+            </form>
+            <pre id="blameResult" class="detail-block">Blame output will appear here.</pre>
+          </article>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Import / Sync</h2>
+            <span class="muted">Paste `ghostshift export` JSON to merge sessions into this workspace.</span>
+          </div>
+          <form id="importForm" class="form-stack">
+            <label>
+              <span>Export payload</span>
+              <textarea id="importPayload" rows="8" placeholder='{"sessions": []}'></textarea>
+            </label>
+            <button type="submit">Import payload</button>
+          </form>
+          <pre id="importResult" class="detail-block">Import status will appear here.</pre>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,13 @@
+{
+  "name": "@ghostshift/server",
+  "version": "1.0.0",
+  "description": "Self-host preview server for Ghostshift",
+  "type": "module",
+  "bin": {
+    "ghostshift-server": "src/index.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "AGPL-3.0-only"
+}

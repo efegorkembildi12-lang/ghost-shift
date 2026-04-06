@@ -1,0 +1,7 @@
+{
+  "name": "@ghostshift/ui",
+  "version": "1.0.0",
+  "description": "Static self-host preview UI for Ghostshift",
+  "type": "module",
+  "license": "AGPL-3.0-only"
+}

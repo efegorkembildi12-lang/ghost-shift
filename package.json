@@ -1,0 +1,27 @@
+{
+  "name": "ghostshift",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Open-source audit trail for AI work",
+  "type": "module",
+  "bin": {
+    "ghostshift": "apps/cli/src/index.js",
+    "ghostshift-preview": "apps/server/src/index.js"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "ghostshift": "node apps/cli/src/index.js",
+    "preview": "node apps/server/src/index.js",
+    "test": "node --test",
+    "check": "node --test"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "packageManager": "npm@10",
+  "license": "AGPL-3.0-only"
+}

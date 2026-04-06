@@ -1,0 +1,10 @@
+{
+  "name": "@ghostshift/core",
+  "version": "1.0.0",
+  "description": "Core Ghostshift project operations",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "license": "AGPL-3.0-only"
+}
