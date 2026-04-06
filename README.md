@@ -1,163 +1,134 @@
-# Ghostshift
+<div align="center">
 
-Ghostshift is an open-source CLI and self-hostable platform that records, explains, replays, and verifies AI-made work.
+<h1>Ghostshift</h1>
 
-The wedge is simple: `git` tells you what changed, but it does not tell you why an agent made the change, what task it belonged to, or how to replay it later. Ghostshift is built to become that missing audit trail.
+<p><strong>The missing audit trail for AI-made work.</strong></p>
+<p><code>git</code> tells you what changed.<br/>Ghostshift tells you <em>why</em> an agent made the change, what task it belonged to, and how to replay it later.</p>
 
-## Current Scope
+[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE)
+[![Spec: Apache-2.0](https://img.shields.io/badge/spec-Apache--2.0-green.svg)](LICENSES)
+[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org)
+[![Version](https://img.shields.io/badge/version-1.0.0-orange.svg)](docs/release-notes-v1.0.0.md)
 
-This repository is the first serious scaffold for the product:
+<br/>
 
-- local-first npm monorepo
-- open data model for AI work traces
-- working CLI with line-aware blame primitives
-- file-backed session storage for early development
-- governance docs and RFC process for OSS-first growth
+![Ghostshift demo](assets/launch/ghostshift-demo.gif)
 
-The current release now covers capture, inspection, semantic line-aware blame, decision-linked blame, semantic explain/compare, verification, replay, compare, plugin metadata, stable patch-aware exports, a self-host preview server, a minimal web UI, and a GitHub-ready PR summary flow.
+</div>
 
-## Product Principles
+---
 
-- Open source by default
-- Local-first before cloud
-- Self-hostable from the start
-- Open schema and exportable history
-- Plugin-native integrations
+## Why Ghostshift?
 
-## Monorepo Layout
+AI agents produce commits, but the reasoning — the task context, decisions made, checks run — disappears the moment the agent finishes. Ghostshift captures that layer:
 
-```text
-apps/
-  cli/        npm CLI entrypoint
-  server/     self-host preview HTTP server
-  ui/         static preview web UI
-packages/
-  core/       task/session orchestration
-  plugins/    stable plugin runtime and official adapters
-  spec/       open data shapes and schema versioning
-  storage/    local storage adapters
-docs/
-  architecture/
-  rfcs/
-  spec/
-examples/
-  local-repo/
-```
+- **Capture** — record tasks, touched files, decisions, and verification results alongside every agent session
+- **Blame** — find which session changed a specific file or line, and what decision went with it
+- **Explain** — get a semantic summary of what a session did and why
+- **Replay** — create a new session linked to an earlier one for auditability
+- **Compare** — diff two sessions: verification changes, decision provenance, patch deltas
+- **Export** — emit a stable, open JSON payload for external tooling or archival
+- **Self-host** — browse all of the above in a local preview UI, no cloud required
 
-## CLI Prototype
+---
 
-The current CLI exposes the first set of commands:
+## Install
 
 ```bash
-node apps/cli/src/index.js init
-node apps/cli/src/index.js run "refactor auth middleware" --files src/auth.ts,src/session.ts
-node apps/cli/src/index.js trace
-node apps/cli/src/index.js blame src/auth.ts
-node apps/cli/src/index.js blame src/auth.ts --line 42
-node apps/cli/src/index.js explain gs_...
-node apps/cli/src/index.js verify gs_...
-node apps/cli/src/index.js replay gs_...
-node apps/cli/src/index.js compare gs_old gs_new
-node apps/cli/src/index.js export
-node apps/cli/src/index.js doctor
+npm install -g ghostshift
 ```
 
-What each command does today:
-
-- `init`: creates `.ghostshift/` and local config
-- `run`: records a task-oriented session and optional file touches
-- `run`: when executed in a git repo, automatically captures unified diffs for changed files
-- `trace`: lists captured sessions
-- `blame`: finds sessions that touched a file
-- `blame --line`: resolves the latest session that changed the requested current line and reports semantic patch context when available
-- `explain`: summarizes why a session happened, what it touched, and what kind of patch it contains
-- `verify`: shows verification state for a recorded session
-- `replay`: creates a new session linked to an earlier session
-- `compare`: shows what changed between two sessions, including check-level verification diffs and semantic patch differences
-- `export`: emits a stable patch-aware payload with raw sessions, derived reports, and plugin export sections
-- `doctor`: validates config and storage directories
-
-`run` also accepts the first structured metadata inputs:
+Or run directly from this repo:
 
 ```bash
-node apps/cli/src/index.js run "refactor auth middleware" \
+git clone https://github.com/efegorkembildi12-lang/ghost-shift.git
+cd ghost-shift
+npm install
+node apps/cli/src/index.js --help
+```
+
+---
+
+## Quickstart
+
+```bash
+# 1. Initialize in your project
+ghostshift init
+
+# 2. Record a task with decisions and verification
+ghostshift run "refactor auth middleware" \
   --files src/auth.ts,src/session.ts \
   --decision "rationale:split auth checks from session loading" \
   --decision "risk:avoid changing token parsing in this pass" \
   --verify "lint:passed" \
   --verify "unit-tests:pending:needs fixture coverage"
+
+# 3. List sessions
+ghostshift trace
+
+# 4. Find who changed a line
+ghostshift blame src/auth.ts --line 42
 ```
 
-## Current Goal
+See [docs/quickstart.md](docs/quickstart.md) for the full walkthrough.
 
-Ship a credible open-source `v1.0` for:
+---
 
-1. session capture
-2. trace inspection
-3. line-aware and decision-aware blame
-4. explain, verify, replay, and compare flows
-5. stable open export format
-6. stable plugin API and official adapters
-7. self-host preview server and UI
-8. GitHub-ready PR summaries
-9. contributor-friendly architecture and release docs
+## CLI Reference
 
-## Open-Source Operating Model
+| Command | What it does |
+|---|---|
+| `init` | Create `.ghostshift/` and local config |
+| `run <task>` | Record a task session with files, decisions, and checks |
+| `trace` | List all captured sessions |
+| `blame <file> [--line N]` | Find sessions that touched a file or specific line |
+| `explain <id>` | Summarize why a session happened and what it touched |
+| `verify <id>` | Show verification state for a session |
+| `replay <id>` | Create a new session linked to an earlier one |
+| `compare <left> <right>` | Diff two sessions |
+| `pr-summary [left] [right]` | Generate a Markdown PR summary |
+| `export` | Emit a stable JSON payload of all session data |
+| `doctor` | Validate config and storage |
 
-Ghostshift is intended to stay fully open source. The license split is now locked:
+### Blame — line-aware attribution
 
-- product packages are `AGPL-3.0-only`
-- spec and future SDK packages are `Apache-2.0`
+![ghostshift blame](assets/launch/cli-blame-line.png)
 
-The rationale is documented in [docs/rfcs/0001-monorepo-and-oss.md](/Users/efegorkembildi/Code/ghostshift/docs/rfcs/0001-monorepo-and-oss.md).
+### PR Summary — ready for automation
 
-## v1.0 Highlights
+![ghostshift pr-summary](assets/launch/cli-pr-summary.png)
 
-- stable CLI and export surface
-- self-host preview server and static UI
-- plugin API `1.0.0`
-- GitHub PR summary command and workflow example
-- quickstart, migration notes, and release checklist
+---
 
-## Development
+## Self-Host Preview
 
-This release does not require external dependencies beyond Node and npm.
+Start a local browser UI over any workspace that contains `.ghostshift/`:
 
 ```bash
-npm test
-node apps/cli/src/index.js --help
-node apps/server/src/index.js --help
-npm exec ghostshift -- help
-npm exec ghostshift-preview -- --help
+npm run preview
+# or: GHOSTSHIFT_WORKSPACE=/path/to/repo node apps/server/src/index.js
 ```
 
-See [docs/quickstart.md](/Users/efegorkembildi/Code/ghostshift/docs/quickstart.md) for the fastest path from install to first trace.
+![Ghostshift preview UI](assets/launch/preview-session-detail.png)
 
-## Plugin Runtime
+The preview exposes session detail, explain reports, compare views, line-aware blame lookup, and export import/sync — all without a cloud dependency.
 
-Ghostshift now ships a first stable plugin API with four hook types:
+---
 
-- `captureSession`
-- `enrichPatch`
-- `reportVerification`
-- `consumeExport`
+## Plugins
 
-The built-in adapters are:
+Ghostshift ships a stable plugin API with four hook types:
 
-- `git`
-- `shell`
+| Hook | Purpose |
+|---|---|
+| `captureSession` | Enrich a session at capture time |
+| `enrichPatch` | Add semantic metadata to a diff |
+| `reportVerification` | Push verification results to external systems |
+| `consumeExport` | Process the stable export payload |
 
-The default config enables both adapters:
+Built-in adapters: **`git`**, **`shell`** (enabled by default).
 
-```json
-{
-  "plugins": {
-    "enabled": ["git", "shell"]
-  }
-}
-```
-
-You can also load a local plugin module by relative path:
+Load a local plugin by path:
 
 ```json
 {
@@ -167,72 +138,66 @@ You can also load a local plugin module by relative path:
 }
 ```
 
+See [docs/architecture/plugins.md](docs/architecture/plugins.md) for the full adapter contract.
+
+---
+
 ## Stable Export
 
-`ghostshift export` now emits:
+`ghostshift export` emits a versioned JSON payload with:
 
 - raw `sessions`
-- derived `reports` keyed by session id
+- derived `reports` (verification summary, patch summary, semantic summary, provenance summary, replay lineage)
 - plugin catalog and plugin-produced export sections
 - explicit `exportVersion` and capability metadata
 
-Derived reports now include:
+See [docs/spec/export-format.md](docs/spec/export-format.md) for the exact shape.
 
-- `verificationSummary`
-- `patchSummary`
-- `semanticSummary`
-- `provenanceSummary`
-- `replayLineage`
-
-See [docs/spec/export-format.md](/Users/efegorkembildi/Code/ghostshift/docs/spec/export-format.md) and [docs/architecture/plugins.md](/Users/efegorkembildi/Code/ghostshift/docs/architecture/plugins.md) for the exact shape and adapter contract.
+---
 
 ## PR Summary Flow
 
-Generate a Markdown summary from the latest two sessions:
-
 ```bash
-npm exec ghostshift -- pr-summary
+# From latest two sessions
+ghostshift pr-summary
+
+# Between specific sessions, written to a file
+ghostshift pr-summary gs_base gs_head --output ghostshift-pr-summary.md
 ```
 
-Or write it to a file for PR automation:
+See [examples/github-action/README.md](examples/github-action/README.md) for the GitHub Actions workflow example.
 
-```bash
-npm exec ghostshift -- pr-summary gs_base gs_head --output ghostshift-pr-summary.md
+---
+
+## Repository Layout
+
+```
+apps/
+  cli/        npm CLI entrypoint
+  server/     self-host preview HTTP server
+  ui/         static preview web UI
+packages/
+  core/       task and session orchestration
+  plugins/    stable plugin runtime and official adapters
+  spec/       open data shapes and schema versioning
+  storage/    local storage adapters
+docs/
+  architecture/
+  rfcs/
+  spec/
+examples/
+  local-repo/
+  github-action/
 ```
 
-See [examples/github-action/README.md](/Users/efegorkembildi/Code/ghostshift/examples/github-action/README.md) for the GitHub Actions example.
+---
 
-## Self-Host Preview
+## License
 
-Start the preview server inside a workspace that already contains `.ghostshift/`:
+Product packages are `AGPL-3.0-only`. The spec and future SDK packages are `Apache-2.0`. The rationale is in [docs/rfcs/0001-monorepo-and-oss.md](docs/rfcs/0001-monorepo-and-oss.md).
 
-```bash
-npm run preview
-```
+---
 
-Or point it at another workspace:
+## Contributing
 
-```bash
-GHOSTSHIFT_WORKSPACE=/absolute/path/to/repo node apps/server/src/index.js
-```
-
-The preview exposes:
-
-- session list and session detail
-- explain report view
-- compare report view
-- line-aware blame lookup
-- export payload import/sync
-
-See [docs/architecture/self-host-preview.md](/Users/efegorkembildi/Code/ghostshift/docs/architecture/self-host-preview.md) for the API surface and workflow.
-
-## Release Docs
-
-- [Quickstart](/Users/efegorkembildi/Code/ghostshift/docs/quickstart.md)
-- [Migrations And Compatibility](/Users/efegorkembildi/Code/ghostshift/docs/migrations.md)
-- [Release Checklist](/Users/efegorkembildi/Code/ghostshift/docs/release-checklist.md)
-- [Release Notes v1.0.0](/Users/efegorkembildi/Code/ghostshift/docs/release-notes-v1.0.0.md)
-- [Launch Messaging](/Users/efegorkembildi/Code/ghostshift/docs/launch-messaging.md)
-- [Demo Script](/Users/efegorkembildi/Code/ghostshift/docs/demo-script.md)
-- [Dogfood Report v1.0.0](/Users/efegorkembildi/Code/ghostshift/docs/dogfood-report-v1.0.0.md)
-- [Launch Assets Manifest](/Users/efegorkembildi/Code/ghostshift/docs/assets-manifest.md)
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [GOVERNANCE.md](GOVERNANCE.md). New contributors should start with the [quickstart](docs/quickstart.md) and the [RFC process](docs/rfcs/).
