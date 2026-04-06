@@ -1,4 +1,4 @@
-<svg class="rich-terminal" viewBox="0 0 1177 269.6" xmlns="http://www.w3.org/2000/svg">
+<svg class="rich-terminal" viewBox="0 0 1177 220.79999999999998" xmlns="http://www.w3.org/2000/svg">
     <!-- Generated with Rich https://www.textualize.io -->
     <style>
 
@@ -19,78 +19,68 @@
         font-weight: 700;
     }
 
-    .terminal-357337134-matrix {
+    .terminal-921709312-matrix {
         font-family: Fira Code, monospace;
         font-size: 20px;
         line-height: 24.4px;
         font-variant-east-asian: full-width;
     }
 
-    .terminal-357337134-title {
+    .terminal-921709312-title {
         font-size: 18px;
         font-weight: bold;
         font-family: arial;
     }
 
-    .terminal-357337134-r1 { fill: #98a84b;font-weight: bold }
-.terminal-357337134-r2 { fill: #c5c8c6 }
-.terminal-357337134-r3 { fill: #c5c8c6;font-weight: bold }
-.terminal-357337134-r4 { fill: #68a0b3 }
-.terminal-357337134-r5 { fill: #d0b344 }
-.terminal-357337134-r6 { fill: #98729f;font-weight: bold }
-.terminal-357337134-r7 { fill: #98a84b }
-.terminal-357337134-r8 { fill: #868887 }
+    .terminal-921709312-r1 { fill: #98a84b;font-weight: bold }
+.terminal-921709312-r2 { fill: #c5c8c6 }
+.terminal-921709312-r3 { fill: #c5c8c6;font-weight: bold }
+.terminal-921709312-r4 { fill: #68a0b3 }
+.terminal-921709312-r5 { fill: #d0b344 }
+.terminal-921709312-r6 { fill: #868887 }
     </style>
 
     <defs>
-    <clipPath id="terminal-357337134-clip-terminal">
-      <rect x="0" y="0" width="1158.0" height="218.6" />
+    <clipPath id="terminal-921709312-clip-terminal">
+      <rect x="0" y="0" width="1158.0" height="169.79999999999998" />
     </clipPath>
-    <clipPath id="terminal-357337134-line-0">
+    <clipPath id="terminal-921709312-line-0">
     <rect x="0" y="1.5" width="1159" height="24.65"/>
             </clipPath>
-<clipPath id="terminal-357337134-line-1">
+<clipPath id="terminal-921709312-line-1">
     <rect x="0" y="25.9" width="1159" height="24.65"/>
             </clipPath>
-<clipPath id="terminal-357337134-line-2">
+<clipPath id="terminal-921709312-line-2">
     <rect x="0" y="50.3" width="1159" height="24.65"/>
             </clipPath>
-<clipPath id="terminal-357337134-line-3">
+<clipPath id="terminal-921709312-line-3">
     <rect x="0" y="74.7" width="1159" height="24.65"/>
             </clipPath>
-<clipPath id="terminal-357337134-line-4">
+<clipPath id="terminal-921709312-line-4">
     <rect x="0" y="99.1" width="1159" height="24.65"/>
             </clipPath>
-<clipPath id="terminal-357337134-line-5">
+<clipPath id="terminal-921709312-line-5">
     <rect x="0" y="123.5" width="1159" height="24.65"/>
-            </clipPath>
-<clipPath id="terminal-357337134-line-6">
-    <rect x="0" y="147.9" width="1159" height="24.65"/>
-            </clipPath>
-<clipPath id="terminal-357337134-line-7">
-    <rect x="0" y="172.3" width="1159" height="24.65"/>
             </clipPath>
     </defs>
 
-    <rect fill="#292929" stroke="rgba(255,255,255,0.35)" stroke-width="1" x="1" y="1" width="1175" height="267.6" rx="8"/><text class="terminal-357337134-title" fill="#c5c8c6" text-anchor="middle" x="587" y="27">ghostshift&#160;blame&#160;auth.ts&#160;--line&#160;1</text>
+    <rect fill="#292929" stroke="rgba(255,255,255,0.35)" stroke-width="1" x="1" y="1" width="1175" height="218.8" rx="8"/><text class="terminal-921709312-title" fill="#c5c8c6" text-anchor="middle" x="587" y="27">ghostshift&#160;blame&#160;auth.ts&#160;--line&#160;1</text>
             <g transform="translate(26,22)">
             <circle cx="0" cy="0" r="7" fill="#ff5f57"/>
             <circle cx="22" cy="0" r="7" fill="#febc2e"/>
             <circle cx="44" cy="0" r="7" fill="#28c840"/>
             </g>
         
-    <g transform="translate(9, 41)" clip-path="url(#terminal-357337134-clip-terminal)">
+    <g transform="translate(9, 41)" clip-path="url(#terminal-921709312-clip-terminal)">
     
-    <g class="terminal-357337134-matrix">
-    <text class="terminal-357337134-r1" x="0" y="20" textLength="12.2" clip-path="url(#terminal-357337134-line-0)">$</text><text class="terminal-357337134-r3" x="24.4" y="20" textLength="402.6" clip-path="url(#terminal-357337134-line-0)">ghostshift&#160;blame&#160;auth.ts&#160;--line&#160;1</text><text class="terminal-357337134-r2" x="1159" y="20" textLength="12.2" clip-path="url(#terminal-357337134-line-0)">
-</text><text class="terminal-357337134-r4" x="0" y="44.4" textLength="158.6" clip-path="url(#terminal-357337134-line-1)">Path:&#160;auth.ts</text><text class="terminal-357337134-r2" x="1159" y="44.4" textLength="12.2" clip-path="url(#terminal-357337134-line-1)">
-</text><text class="terminal-357337134-r4" x="0" y="68.8" textLength="85.4" clip-path="url(#terminal-357337134-line-2)">Line:&#160;1</text><text class="terminal-357337134-r2" x="1159" y="68.8" textLength="12.2" clip-path="url(#terminal-357337134-line-2)">
-</text><text class="terminal-357337134-r4" x="0" y="93.2" textLength="183" clip-path="url(#terminal-357337134-line-3)">Precision:&#160;file</text><text class="terminal-357337134-r2" x="1159" y="93.2" textLength="12.2" clip-path="url(#terminal-357337134-line-3)">
-</text><text class="terminal-357337134-r5" x="0" y="117.6" textLength="683.2" clip-path="url(#terminal-357337134-line-4)">Latest&#160;file-level&#160;session:&#160;gs_20260406T084641564Z_o4p623</text><text class="terminal-357337134-r2" x="1159" y="117.6" textLength="12.2" clip-path="url(#terminal-357337134-line-4)">
-</text><text class="terminal-357337134-r5" x="0" y="142" textLength="280.6" clip-path="url(#terminal-357337134-line-5)">Task:&#160;rename&#160;auth&#160;token</text><text class="terminal-357337134-r2" x="1159" y="142" textLength="12.2" clip-path="url(#terminal-357337134-line-5)">
-</text><text class="terminal-357337134-r6" x="0" y="166.4" textLength="122" clip-path="url(#terminal-357337134-line-6)">Decisions:</text><text class="terminal-357337134-r2" x="1159" y="166.4" textLength="12.2" clip-path="url(#terminal-357337134-line-6)">
-</text><text class="terminal-357337134-r7" x="0" y="190.8" textLength="48.8" clip-path="url(#terminal-357337134-line-7)">&#160;&#160;-&#160;</text><text class="terminal-357337134-r7" x="48.8" y="190.8" textLength="231.8" clip-path="url(#terminal-357337134-line-7)">&#160;rename&#160;for&#160;clarity</text><text class="terminal-357337134-r2" x="1159" y="190.8" textLength="12.2" clip-path="url(#terminal-357337134-line-7)">
-</text><text class="terminal-357337134-r8" x="0" y="215.2" textLength="829.6" clip-path="url(#terminal-357337134-line-8)">No&#160;patch&#160;hunk&#160;matched&#160;this&#160;line.&#160;Falling&#160;back&#160;to&#160;file-level&#160;history.</text><text class="terminal-357337134-r2" x="1159" y="215.2" textLength="12.2" clip-path="url(#terminal-357337134-line-8)">
+    <g class="terminal-921709312-matrix">
+    <text class="terminal-921709312-r1" x="0" y="20" textLength="12.2" clip-path="url(#terminal-921709312-line-0)">$</text><text class="terminal-921709312-r3" x="24.4" y="20" textLength="402.6" clip-path="url(#terminal-921709312-line-0)">ghostshift&#160;blame&#160;auth.ts&#160;--line&#160;1</text><text class="terminal-921709312-r2" x="1159" y="20" textLength="12.2" clip-path="url(#terminal-921709312-line-0)">
+</text><text class="terminal-921709312-r4" x="0" y="44.4" textLength="158.6" clip-path="url(#terminal-921709312-line-1)">Path:&#160;auth.ts</text><text class="terminal-921709312-r2" x="1159" y="44.4" textLength="12.2" clip-path="url(#terminal-921709312-line-1)">
+</text><text class="terminal-921709312-r4" x="0" y="68.8" textLength="85.4" clip-path="url(#terminal-921709312-line-2)">Line:&#160;1</text><text class="terminal-921709312-r2" x="1159" y="68.8" textLength="12.2" clip-path="url(#terminal-921709312-line-2)">
+</text><text class="terminal-921709312-r4" x="0" y="93.2" textLength="183" clip-path="url(#terminal-921709312-line-3)">Precision:&#160;file</text><text class="terminal-921709312-r2" x="1159" y="93.2" textLength="12.2" clip-path="url(#terminal-921709312-line-3)">
+</text><text class="terminal-921709312-r5" x="0" y="117.6" textLength="683.2" clip-path="url(#terminal-921709312-line-4)">Latest&#160;file-level&#160;session:&#160;gs_20260406T093937482Z_naxk0a</text><text class="terminal-921709312-r2" x="1159" y="117.6" textLength="12.2" clip-path="url(#terminal-921709312-line-4)">
+</text><text class="terminal-921709312-r5" x="0" y="142" textLength="256.2" clip-path="url(#terminal-921709312-line-5)">Task:&#160;validate&#160;rename</text><text class="terminal-921709312-r2" x="1159" y="142" textLength="12.2" clip-path="url(#terminal-921709312-line-5)">
+</text><text class="terminal-921709312-r6" x="0" y="166.4" textLength="829.6" clip-path="url(#terminal-921709312-line-6)">No&#160;patch&#160;hunk&#160;matched&#160;this&#160;line.&#160;Falling&#160;back&#160;to&#160;file-level&#160;history.</text><text class="terminal-921709312-r2" x="1159" y="166.4" textLength="12.2" clip-path="url(#terminal-921709312-line-6)">
 </text>
     </g>
     </g>
