@@ -38,7 +38,7 @@ AI agents produce commits, but the reasoning — the task context, decisions mad
 npm install -g ghostshift
 ```
 
-Node 20+ required. No other dependencies.
+Node 18+ required. No other dependencies.
 
 ---
 
