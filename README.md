@@ -38,14 +38,7 @@ AI agents produce commits, but the reasoning — the task context, decisions mad
 npm install -g ghostshift
 ```
 
-Or run directly from this repo:
-
-```bash
-git clone https://github.com/efegorkembildi12-lang/ghost-shift.git
-cd ghost-shift
-npm install
-node apps/cli/src/index.js --help
-```
+Node 20+ required. No other dependencies.
 
 ---
 

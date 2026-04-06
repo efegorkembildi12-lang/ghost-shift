@@ -1,13 +1,28 @@
 {
   "name": "ghostshift",
   "version": "1.0.0",
-  "private": true,
   "description": "Open-source audit trail for AI work",
   "type": "module",
   "bin": {
     "ghostshift": "apps/cli/src/index.js",
     "ghostshift-preview": "apps/server/src/index.js"
   },
+  "files": [
+    "apps/cli/src",
+    "apps/server/src",
+    "apps/ui/public",
+    "packages/core/src",
+    "packages/plugins/src",
+    "packages/spec/src",
+    "packages/storage/src",
+    "apps/cli/package.json",
+    "apps/server/package.json",
+    "apps/ui/package.json",
+    "packages/core/package.json",
+    "packages/plugins/package.json",
+    "packages/spec/package.json",
+    "packages/storage/package.json"
+  ],
   "workspaces": [
     "apps/*",
     "packages/*"
